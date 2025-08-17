@@ -1,0 +1,48 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Static Files Test</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 40px; }
+        .test-section { margin: 20px 0; padding: 20px; border: 1px solid #ccc; }
+        .success { color: green; }
+        .error { color: red; }
+    </style>
+</head>
+<body>
+    <h1>Static Files Test</h1>
+    
+    <div class="test-section">
+        <h2>CSS Test</h2>
+        <p>If you see this text styled differently, CSS is working.</p>
+        <link rel="stylesheet" href="{% static 'assets/css/main.css' %}" />
+        <p class="success">CSS file loaded: {% static 'assets/css/main.css' %}</p>
+    </div>
+    
+    <div class="test-section">
+        <h2>JavaScript Test</h2>
+        <p>Check browser console for JavaScript errors.</p>
+        <script src="{% static 'assets/js/jquery.min.js' %}"></script>
+        <script>
+            if (typeof jQuery !== 'undefined') {
+                document.write('<p class="success">jQuery loaded successfully!</p>');
+            } else {
+                document.write('<p class="error">jQuery failed to load!</p>');
+            }
+        </script>
+    </div>
+    
+    <div class="test-section">
+        <h2>FontAwesome Test</h2>
+        <link rel="stylesheet" href="{% static 'assets/css/fontawesome-all.min.css' %}" />
+        <p><i class="fas fa-home"></i> This should show a home icon if FontAwesome is working.</p>
+    </div>
+    
+    <div class="test-section">
+        <h2>Debug Info</h2>
+        <p>Static URL: {{ STATIC_URL }}</p>
+        <p>Debug Mode: {{ DEBUG }}</p>
+    </div>
+</body>
+</html> 
