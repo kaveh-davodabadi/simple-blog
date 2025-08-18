@@ -19,10 +19,10 @@
 		<!-- Header -->
 			<header id="header">
 				<div class="inner">
-					<a href="#" class="image avatar"><img src="#" alt="hello" /></a>
-					<h1><strong>I am Strata</strong>, a super simple<br />
-					responsive site template freebie<br />
-					crafted by <a href="http://html5up.net">HTML5 UP</a>.</h1>
+					<a href="{% static "assets/css/images/bg.jpg" %}" class="image avatar"><img src="{% static "assets/css/images/avatar.jpg" %}" alt="hello" /></a>
+					<h1><strong>I am Kaveh Davodabadi</strong>, a junior Backend developer<br />
+					focusing on Django and Python<br />
+					
 				</div>
 			</header>
 
@@ -47,17 +47,19 @@
 						
 						<div class="row">
 							{% for post in posts %}
-							{% if post.post_type == "blog" %}
+							
 							<article class="col-6 col-12-xsmall work-item">
-								<a href="#" class="image fit thumb"><img src="{{ post.image.url }}" alt="{{post.title}}" /></a>
-								<h3>{{post.title}}</h3>
+								<a href="{% url 'post_detail' post.pk %}" class="image fit thumb"><img src="{{ post.image.url }}" alt="{{post.title}}" /></a>
+								<h3>{{post.title}}</h3>{% if post.post_type == "project" %}	<h3 style="color:rgba(0, 0, 0, 0.83);;">{{post.post_type}}</h3>{% endif %}
+								
+								
 								<p>{{post.content}}</p>
 							</article>
-							{% endif %}
+							
 							{% endfor %}
 						</div>
 						<ul class="actions">
-							<li><a href="#" class="button">All Posts</a></li>
+							<li><a href="{% url 'posts' %}" class="button">All Posts</a></li>
 						</ul>
 					</section>
 
@@ -106,10 +108,10 @@
 			<footer id="footer">
 				<div class="inner">
 					<ul class="icons">
-						<li><a href="#" class="icon brands fa-twitter"><span class="label">Twitter</span></a></li>
-						<li><a href="#" class="icon brands fa-github"><span class="label">Github</span></a></li>
-						<li><a href="#" class="icon brands fa-dribbble"><span class="label">Dribbble</span></a></li>
-						<li><a href="#" class="icon solid fa-envelope"><span class="label">Email</span></a></li>
+						<li><a href="https://t.me/kawweh" class="icon brands fa-telegram"><span class="label">Twitter</span></a></li>
+						<li><a href="https://github.com/kaveh-davodabadi" class="icon brands fa-github"><span class="label">Github</span></a></li>
+						<li><a href="https://www.linkedin.com/in/kaveh-davodabadi-055215223/" class="icon brands fa-linkedin"><span class="label">Dribbble</span></a></li>
+						<li><a href="mailto:kavehdavodabadi@gmail.com" class="icon solid fa-envelope"><span class="label">Email</span></a></li>
 					</ul>
 					<ul class="copyright">
 						<li>&copy; Untitled</li><li>Design: <a href="http://html5up.net">HTML5 UP</a></li>

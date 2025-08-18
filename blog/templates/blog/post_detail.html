@@ -1,0 +1,62 @@
+<!-- post_detail.html -->
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ post.title }}</title>
+    <link rel="stylesheet" href="{% static 'css/post_detail.css' %}">
+    	<link rel="stylesheet" href="{% static 'assets/css/fontawesome-all.min.css' %}" />
+		<link rel="stylesheet" href="{% static 'assets/css/post-detail.css' %}" />
+</head>
+<body>
+    <header class="header">
+        <ul>
+            <li>
+                <a href="{% url 'Home' %}"></a>
+            </li>
+        </ul>
+    </header>
+    <div class="post-container">
+        <article class="post-detail">
+            <h1 class="post-title">{{ post.title }}</h1>
+            {% if post.image %}
+                <img src="{{ post.image.url }}" alt="{{ post.title }}" class="post-image">
+            {% endif %}
+            <div class="post-content">
+                {{ post.content|linebreaks }}
+            </div>
+            {% if post.related_url %}
+                <p class="related-link">Related: <a href="{{ post.related_url }}" target="_blank">{{ post.related_url }}</a></p>
+            {% endif %}
+            <section class="comments">
+                <h2>Comments</h2>
+                {% for comment in post.comments.all %}
+                    {% if comment.is_approved %}
+                        <div class="comment">
+                            <p class="comment-author">{{ comment.full_name }} ({{ comment.email }})</p>
+                            <p class="comment-content">{{ comment.content|linebreaks }}</p>
+                            {% if comment.reply %}
+                                <div class="reply">
+                                    <p class="reply-content">Reply: {{ comment.reply.content|linebreaks }}</p>
+                                </div>
+                            {% endif %}
+                        </div>
+                    {% endif %}
+                {% empty %}
+                    <p>No comments yet.</p>
+                {% endfor %}
+            </section>
+            <section class="comment-form">
+                <h2>Leave a Comment</h2>
+                <form method="post">
+                    {% csrf_token %}
+                    {{ comment_form.as_p }}
+                    <button type="submit">Submit Comment</button>
+                </form>
+            </section>
+        </article>
+    </div>
+</body>
+</html>

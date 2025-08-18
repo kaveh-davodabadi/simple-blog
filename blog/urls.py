@@ -4,5 +4,6 @@ from . import views
 
 urlpatterns = [
     path("", views.IndexView.as_view(), name="Home"),
-    path("test-static/", views.test_static_view, name="test_static"),
+    path("post/<int:pk>/", views.PostDetailView.as_view(), name="post_detail"),
+    path("posts/", views.PostsView.as_view(), name="posts"),
 ]
