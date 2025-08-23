@@ -1,0 +1,84 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kaveh Davodabadi - Resume</title>
+    <link rel="stylesheet" href="{% static 'assets/css/resume.css' %}" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="resume-container">
+        <div class="left-column">
+            <div class="profile-photo">
+                <img src="{% static "assets/css/images/avatar.jpg" %}" alt="Kaveh Davodabadi Profile Photo">
+            </div>
+            
+            <div class="contact-section">
+                <h2>Contact</h2>
+                <ul>
+                    <li>(+98) 933-684-8942</li>
+                    <li>kavehdavodabadi@outlook.com</li>
+                    <li>13 royan, Banihashem st, Tehran, Iran</li>
+                    <a href="github.com/kaveh-davodabadi" style=" text-decoration: none; color:inherit; font-family:inherit;">github.com/kaveh-davodabadi</a>
+                </ul>
+            </div>
+            
+            <div class="education-experience-section">
+                <h2>Education/Experiences</h2>
+                <ul>
+                    <li>
+                        <h3>Pre-University Degree</h3>
+                    </li>
+                    <li>
+                        <h3>IT Intern / Coworker</h3>
+                        <p>pishkhan2002 Tehran - 2018 to 2023</p>
+                        <p>
+                            Assisted in daily IT operations, including troubleshooting hardware and software issues. Supported the team in maintaining and updating internal systems. Helped colleagues with technical problems and trained staff on using internal applications.
+                        </p>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        
+        <div class="right-column">
+            <div class="profile-header">
+                <h1>kaveh davodabadi</h1>
+                <p>1999/06/06</p>
+            </div>
+            
+            <div class="summary-section">
+                <p>
+                    Passionate about backend development and Django framework. I am seeking an entry-level position where I can contribute to real-world projects, learn from experienced developers, and improve my technical and problem-solving skills.
+                </p>
+            </div>
+            
+            <div class="skills-section">
+                <h2>Skills</h2>
+                <ul>
+                    <li>Python programming advanced (Certificate from Tehran Institute of Technology)</li>
+                    <li>Html/css : basic</li>
+                    <li>SQL(postgersql) : basic</li>
+                    <li>Git/Github : mid-level</li>
+                    <li>Networking: basic</li>
+                    <li>Linux: basic</li>
+                    <li>Django : Jjunior</li>
+                    <li>Django Rest Framework : basic</li>
+                </ul>
+            </div>
+            
+            <div class="languages-section">
+                <h2>Languages</h2>
+                <ul>
+                    <li>Persian (Native)</li>
+                    <li>English: B2 (no certificate)</li>
+                    <li>German (B2 TELC certificate)</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

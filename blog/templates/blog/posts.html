@@ -6,6 +6,8 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 		<link rel="stylesheet" href="{% static 'assets/css/fontawesome-all.min.css' %}" />
 		<link rel="stylesheet" href="{% static 'assets/css/main.css' %}" />
+		<link rel="stylesheet"href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+		
 
     <title>Posts</title>
 </head>
@@ -19,7 +21,7 @@
 				<!-- Two -->
 					<section id="two">
 						<h2>All Posts</h2>
-						
+						<a href="{% url "home" %}" class="image avatar"><i class="fa-solid fa-house" style="font-size:50px; color:rgba(255, 255, 255, 0.4);"></i></a>
 						<div class="row">
 							{% for post in posts %}
 							

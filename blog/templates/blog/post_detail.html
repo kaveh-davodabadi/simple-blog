@@ -6,57 +6,139 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{{ post.title }}</title>
-    <link rel="stylesheet" href="{% static 'css/post_detail.css' %}">
-    	<link rel="stylesheet" href="{% static 'assets/css/fontawesome-all.min.css' %}" />
-		<link rel="stylesheet" href="{% static 'assets/css/post-detail.css' %}" />
+
+	<link rel="stylesheet" href="{% static 'assets/css/fontawesome-all.min.css' %}" />
+	<link rel="stylesheet"href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+
+	<link rel="stylesheet" href="{% static 'assets/css/post-detail.css' %}" />
+	<link rel="stylesheet" href="{% static 'assets/css/main.css' %}" />
 </head>
-<body>
-    <header class="header">
-        <ul>
-            <li>
-                <a href="{% url 'Home' %}"></a>
-            </li>
-        </ul>
-    </header>
-    <div class="post-container">
-        <article class="post-detail">
-            <h1 class="post-title">{{ post.title }}</h1>
-            {% if post.image %}
-                <img src="{{ post.image.url }}" alt="{{ post.title }}" class="post-image">
-            {% endif %}
-            <div class="post-content">
-                {{ post.content|linebreaks }}
-            </div>
-            {% if post.related_url %}
-                <p class="related-link">Related: <a href="{{ post.related_url }}" target="_blank">{{ post.related_url }}</a></p>
-            {% endif %}
-            <section class="comments">
-                <h2>Comments</h2>
-                {% for comment in post.comments.all %}
-                    {% if comment.is_approved %}
-                        <div class="comment">
-                            <p class="comment-author">{{ comment.full_name }} ({{ comment.email }})</p>
-                            <p class="comment-content">{{ comment.content|linebreaks }}</p>
-                            {% if comment.reply %}
-                                <div class="reply">
-                                    <p class="reply-content">Reply: {{ comment.reply.content|linebreaks }}</p>
-                                </div>
-                            {% endif %}
-                        </div>
-                    {% endif %}
-                {% empty %}
-                    <p>No comments yet.</p>
-                {% endfor %}
-            </section>
-            <section class="comment-form">
-                <h2>Leave a Comment</h2>
-                <form method="post">
-                    {% csrf_token %}
-                    {{ comment_form.as_p }}
-                    <button type="submit">Submit Comment</button>
-                </form>
-            </section>
-        </article>
-    </div>
-</body>
-</html>
+
+
+
+	<body class="is-preload">
+
+		<!-- Header -->
+			<header id="header">
+				<div class="inner">
+					<a href="{% url "home" %}" class="image avatar"><i class="fa-solid fa-house" style="font-size:50px; color:rgba(255, 255, 255, 0.4);"></i></a>
+					<h1><strong>I am Kaveh Davodabadi</strong>, a junior Backend developer<br />
+					focusing on Django and Python<br />
+					
+				</div>
+			</header>
+
+		<!-- Main -->
+			<div id="main">
+
+	
+
+				<!-- Two -->
+					<section id="two">
+                        <div class="post-container">
+                                <article class="post-detail">
+                                    <h1 class="post-title">{{ post.title }}</h1>
+                                    {% if post.image %}
+                                        <img src="{{ post.image.url }}" alt="{{ post.title }}" class="post-image">
+                                    {% endif %}
+                                    <div class="post-content">
+                                        {{ post.content|linebreaks }}
+                                    </div>
+                                    {% if post.related_url %}
+                                        <p class="related-link">Related: <a href="{{ post.related_url }}" target="_blank">{{ post.related_url }}</a></p>
+                                    {% endif %}
+                                    <section class="comments">
+                                        <h2>Comments</h2>
+                                        {% for comment in post.comments.all %}
+                                            {% if comment.is_approved %}
+                                                <div class="comment">
+                                                    <p class="comment-author">{{ comment.full_name }} ({{ comment.email }})</p>
+                                                    <p class="comment-content">{{ comment.content|linebreaks }}</p>
+                                                    {% if comment.reply %}
+                                                        <div class="reply">
+                                                            <p class="reply-content">Reply: {{ comment.reply.content|linebreaks }}</p>
+                                                        </div>
+                                                    {% endif %}
+                                                </div>
+                                            {% endif %}
+                                        {% empty %}
+                                            <p>No comments yet.</p>
+                                        {% endfor %}
+                                    </section>
+                                    <section class="comment-form">
+                                        <h2>Leave a Comment</h2>
+                                        <form method="post">
+                                            {% csrf_token %}
+                                            {{ comment_form.as_p }}
+                                            <button type="submit">Submit Comment</button>
+                                        </form>
+                                    </section>
+                                </article>
+                            </div>
+					</section>
+
+				<!-- Three -->
+					<section id="three">
+						<h2>Get In Touch</h2>
+						<p>Accumsan pellentesque commodo blandit enim arcu non at amet id arcu magna. Accumsan orci faucibus id eu lorem semper nunc nisi lorem vulputate lorem neque lorem ipsum dolor.</p>
+						<div class="row">
+							<div class="col-8 col-12-small">
+								<form method="post" action="#">
+									<div class="row gtr-uniform gtr-50">
+										<div class="col-6 col-12-xsmall"><input type="text" name="name" id="name" placeholder="Name" /></div>
+										<div class="col-6 col-12-xsmall"><input type="email" name="email" id="email" placeholder="Email" /></div>
+										<div class="col-12"><textarea name="message" id="message" placeholder="Message" rows="4"></textarea></div>
+									</div>
+								</form>
+								<ul class="actions">
+									<li><input type="submit" value="Send Message" /></li>
+								</ul>
+							</div>
+							<div class="col-4 col-12-small">
+								<ul class="labeled-icons">
+									<li>
+										<h3 class="icon solid fa-home"><span class="label">Address</span></h3>
+										1234 Somewhere Rd.<br />
+										Nashville, TN 00000<br />
+										United States
+									</li>
+									<li>
+										<h3 class="icon solid fa-mobile-alt"><span class="label">Phone</span></h3>
+										000-000-0000
+									</li>
+									<li>
+										<h3 class="icon solid fa-envelope"><span class="label">Email</span></h3>
+										<a href="#">hello@untitled.tld</a>
+									</li>
+								</ul>
+							</div>
+						</div>
+					</section>
+
+
+			</div>
+
+		<!-- Footer -->
+			<footer id="footer">
+				<div class="inner">
+					<ul class="icons">
+						<li><a href="https://t.me/kawweh" class="icon brands fa-telegram"><span class="label">Twitter</span></a></li>
+						<li><a href="https://github.com/kaveh-davodabadi" class="icon brands fa-github"><span class="label">Github</span></a></li>
+						<li><a href="https://www.linkedin.com/in/kaveh-davodabadi-055215223/" class="icon brands fa-linkedin"><span class="label">Dribbble</span></a></li>
+						<li><a href="mailto:kavehdavodabadi@gmail.com" class="icon solid fa-envelope"><span class="label">Email</span></a></li>
+					</ul>
+					<ul class="copyright">
+						<li>&copy; Untitled</li><li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
+					</ul>
+				</div>
+			</footer>
+
+		<!-- Scripts -->
+		<script src="{% static 'assets/js/jquery.min.js' %}"></script>
+		<script src="{% static 'assets/js/jquery.poptrox.min.js' %}"></script>
+		<script src="{% static 'assets/js/browser.min.js' %}"></script>
+		<script src="{% static 'assets/js/breakpoints.min.js' %}"></script>
+		<script src="{% static 'assets/js/util.js' %}"></script>
+		<script src="{% static 'assets/js/main.js' %}"></script>
+
+	</body>

@@ -4,6 +4,7 @@ from django.db import models
 
 
 class Post(models.Model):
+
     POST_TYPE_CHOICES = (
         ("project", "Project"),
         ("blog", "Blog"),
@@ -18,6 +19,9 @@ class Post(models.Model):
     is_published = models.BooleanField(default=False)
     published_at = models.DateTimeField(blank=True, null=True)
     slug = models.SlugField(unique=True, max_length=200)
+
+    class Meta:
+        ordering = ["-created_at"]
 
     def __str__(self):
         return self.title
