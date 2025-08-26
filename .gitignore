@@ -33,8 +33,7 @@ var/
 *.pyo
 *.sqlite3
 *.db
-media/
-staticfiles/
+
 
 # If using VS Code
 .vscode/
