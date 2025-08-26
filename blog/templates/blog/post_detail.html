@@ -21,7 +21,7 @@
 		<!-- Header -->
 			<header id="header">
 				<div class="inner">
-					<a href="{% url "home" %}" class="image avatar"><i class="fa-solid fa-house" style="font-size:50px; color:rgba(255, 255, 255, 0.4);"></i></a>
+					<a href="{% url "home" %}" ><i class="fa-solid fa-house"style="font-size:50px; color:rgba(255, 255, 255, 0.4);"></i></a>
 					<h1><strong>I am Kaveh Davodabadi</strong>, a junior Backend developer<br />
 					focusing on Django and Python<br />
 					
@@ -52,7 +52,7 @@
                                         {% for comment in post.comments.all %}
                                             {% if comment.is_approved %}
                                                 <div class="comment">
-                                                    <p class="comment-author">{{ comment.full_name }} ({{ comment.email }})</p>
+                                                    <p class="comment-author">{{ comment.full_name }} </p>
                                                     <p class="comment-content">{{ comment.content|linebreaks }}</p>
                                                     {% if comment.reply %}
                                                         <div class="reply">
@@ -70,7 +70,7 @@
                                         <form method="post">
                                             {% csrf_token %}
                                             {{ comment_form.as_p }}
-                                            <button type="submit">Submit Comment</button>
+                                            <button type="submit" class="button">Submit Comment</button>
                                         </form>
                                     </section>
                                 </article>
