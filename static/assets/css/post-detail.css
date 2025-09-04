@@ -1,0 +1,104 @@
+/* post_detail.css */
+@import url("fontawesome-all.min.css");
+@import url("https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,400italic");
+body {
+    font: inherit;
+    font-family: "Source Sans Pro", Helvetica, sans-serif;
+    line-height: 1.6;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 0;
+    color: #333;
+}
+
+.post-container {
+    max-width: 800px;
+    margin: 50px auto;
+    padding: 20px;
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    border-radius: 5px;
+}
+
+.post-title {
+    font-size: 2em;
+    margin-bottom: 20px;
+}
+
+.post-image {
+    width: 100%;
+    height: auto;
+    margin-bottom: 20px;
+    border-radius: 5px;
+}
+
+.post-content {
+    font-size: 1.1em;
+    margin-bottom: 20px;
+}
+
+/* .related-link a {
+    color: #1e90ff;
+    text-decoration: none;
+} */
+
+.related-link a:hover {
+    text-decoration: underline;
+}
+
+.comments {
+    margin-top: 40px;
+    border-top: 1px solid #ddd;
+    padding-top: 20px;
+}
+
+.comment {
+    margin-bottom: 20px;
+    padding-bottom: 15px;
+    border-bottom: 1px solid #eee;
+}
+
+.comment-author {
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.comment-content {
+    margin-bottom: 10px;
+}
+
+.reply {
+    margin-left: 20px;
+    padding-left: 10px;
+    border-left: 2px solid #ddd;
+    font-style: italic;
+}
+
+.comment-form {
+    margin-top: 40px;
+}
+
+.comment-form input,
+.comment-form textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 1em;
+}
+/* 
+.comment-form button {
+    background-color: #1e90ff;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    font-size: 1em;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.comment-form button:hover {
+    background-color: #0d6efd;
+   
+} */
